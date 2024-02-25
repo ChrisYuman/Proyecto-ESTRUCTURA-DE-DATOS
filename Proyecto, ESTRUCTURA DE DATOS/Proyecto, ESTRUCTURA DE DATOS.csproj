@@ -58,6 +58,7 @@
     <Compile Include="Pagina principal.Designer.cs">
       <DependentUpon>Pagina principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroForm.cs">
@@ -66,6 +67,7 @@
     <Compile Include="RegistroForm.Designer.cs">
       <DependentUpon>RegistroForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
