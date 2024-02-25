@@ -75,5 +75,10 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                 txtUsuario.Focus();
             }
     }
-}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
