@@ -12,15 +12,10 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public partial class Form1 : Form
     {
-
-        private Dictionary<string, string> usuariosRegistrados = new Dictionary<string, string>();
-
+        RegistroForm registroForm = new RegistroForm();
         public Form1()
         {
             InitializeComponent();
-            usuariosRegistrados.Add("admin", "12345");
-            usuariosRegistrados.Add("usuario1", "contraseña1");
-            usuariosRegistrados.Add("usuario2", "contraseña2");
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -28,7 +23,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
 
-            if (ValidarCredenciales(usuario, contraseña))
+            if (registroForm.users.VerificarCredenciales(usuario, contraseña))
             {
                 MessageBox.Show("Inicio de sesión exitoso");
                 // Cambiar a la nueva pantalla o formulario después del inicio de sesión exitoso
@@ -44,32 +39,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                 txtUsuario.Focus();
             }
         }
-        private bool ValidarCredenciales(string usuario, string contraseña)
-        {
-            if (usuariosRegistrados.ContainsKey(usuario))
-            {
-                return usuariosRegistrados[usuario] == contraseña;
-            }
-            return false;
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            RegistroForm registroForm = new RegistroForm();
             if (registroForm.ShowDialog() == DialogResult.OK)
             {
-                string nuevoUsuario = registroForm.NuevoUsuario;
-                string nuevaContraseña = registroForm.NuevaContraseña;
-
-                if (usuariosRegistrados.ContainsKey(nuevoUsuario))
-                {
-                    MessageBox.Show("El usuario ya existe. Por favor, elige otro nombre de usuario.");
-                    return;
-                }
-
                 // Agregar el nuevo usuario y contraseña al diccionario de usuarios registrados
-                usuariosRegistrados.Add(nuevoUsuario, nuevaContraseña);
-                MessageBox.Show("Usuario registrado exitosamente.");
                 txtUsuario.Clear();
                 txtContraseña.Clear();
                 txtUsuario.Focus();
@@ -77,6 +51,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
     }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }

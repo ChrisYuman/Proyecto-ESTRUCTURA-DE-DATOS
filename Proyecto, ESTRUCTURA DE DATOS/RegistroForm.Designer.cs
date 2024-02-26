@@ -32,18 +32,19 @@
             this.txtNuevaContraseña = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtNuevoUsuario
             // 
-            this.txtNuevoUsuario.Location = new System.Drawing.Point(145, 108);
+            this.txtNuevoUsuario.Location = new System.Drawing.Point(158, 118);
             this.txtNuevoUsuario.Name = "txtNuevoUsuario";
             this.txtNuevoUsuario.Size = new System.Drawing.Size(100, 22);
             this.txtNuevoUsuario.TabIndex = 0;
             // 
             // txtNuevaContraseña
             // 
-            this.txtNuevaContraseña.Location = new System.Drawing.Point(145, 165);
+            this.txtNuevaContraseña.Location = new System.Drawing.Point(158, 182);
             this.txtNuevaContraseña.Name = "txtNuevaContraseña";
             this.txtNuevaContraseña.Size = new System.Drawing.Size(100, 22);
             this.txtNuevaContraseña.TabIndex = 1;
@@ -68,11 +69,19 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(158, 55);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtNombre.TabIndex = 4;
+            // 
             // RegistroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.txtNuevaContraseña);
@@ -91,5 +100,6 @@
         private System.Windows.Forms.TextBox txtNuevaContraseña;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }

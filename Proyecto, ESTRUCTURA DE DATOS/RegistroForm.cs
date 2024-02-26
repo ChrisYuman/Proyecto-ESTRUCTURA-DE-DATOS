@@ -12,8 +12,8 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public partial class RegistroForm : Form
     {
-        public string NuevoUsuario { get; private set; }
-        public string NuevaContraseña { get; private set; }
+        public Dictionary<string, Usuario> usuarios;
+        public GestorUsuario users = new GestorUsuario();
         public RegistroForm()
         {
             InitializeComponent();
@@ -26,15 +26,19 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            NuevoUsuario = txtNuevoUsuario.Text;
-            NuevaContraseña = txtNuevaContraseña.Text;
+            string Nombre = txtNombre.Text;
+            string NuevoUsuario = txtNuevoUsuario.Text;
+            string NuevaContraseña = txtNuevaContraseña.Text;
 
             if (string.IsNullOrWhiteSpace(NuevoUsuario) || string.IsNullOrWhiteSpace(NuevaContraseña))
             {
                 MessageBox.Show("Por favor, introduce un nombre de usuario y una contraseña válidos.");
                 return;
             }
-
+            users.RegistrarUsuario(Nombre, NuevoUsuario, NuevaContraseña);
+            txtNombre.Clear();
+            txtNuevoUsuario.Clear();
+            txtNuevaContraseña.Clear();
             DialogResult = DialogResult.OK;
             Close();
         }
