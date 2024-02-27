@@ -14,13 +14,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
     public partial class RegistrarProductos : Form
     {
 
-        private GestorProductos gestorProductos;
+        public GestorProductos products = new GestorProductos();
         public RegistrarProductos()
         {
 
             InitializeComponent();
-
-            gestorProductos = new GestorProductos(new Dictionary<string, Producto>());
 
         }
 
@@ -45,7 +43,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             }
 
             // Registrar el producto utilizando el GestorProductos
-            gestorProductos.RegistrarProducto(nombre, descripcion, precio, cantidad);
+            products.RegistrarProducto(nombre, descripcion, precio, cantidad);
 
             // Limpiar los cuadros de texto después del registro exitoso
             LimpiarCampos();
@@ -119,7 +117,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                         int cantidad = Convert.ToInt32(campos[3]);
 
                         // Registrar el producto utilizando el GestorProductos
-                        gestorProductos.RegistrarProducto(nombre, descripcion, precio, cantidad);
+                        productos.RegistrarProducto(nombre, descripcion, precio, cantidad);
                     }
                 }
 

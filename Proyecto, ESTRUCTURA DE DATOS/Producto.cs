@@ -20,5 +20,6 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             Precio = precio;
             Cantidad_Disponible = cantidad_disponible;
         }
+
     }
 }

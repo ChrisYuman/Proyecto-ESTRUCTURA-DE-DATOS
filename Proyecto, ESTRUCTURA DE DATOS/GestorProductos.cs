@@ -11,9 +11,9 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
     {
         private Dictionary<string, Producto> productos_registrados;
 
-        public GestorProductos(Dictionary<string, Producto> productos_registrados)
+        public GestorProductos()
         {
-            this.productos_registrados = productos_registrados;
+            this.productos_registrados = new Dictionary<string, Producto>();
         }
         public Dictionary<string, Producto> ProductosRegistrados
         {
@@ -39,6 +39,32 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             // Mostrar un mensaje o notificación de éxito
             MessageBox.Show("Producto registrado exitosamente.");
         }
+        public Producto BuscarPorNombre(string nombre)
+        {
+            if (productos_registrados.ContainsKey(nombre))
+            {
+                Producto producto_encontrado = productos_registrados[nombre];
+                return producto_encontrado;
+            }
+            else
+            {
+                MessageBox.Show("No existe el producto a buscar");
+                return;
+            }
+        }
 
+        public Producto BuscarPorCategoria(string categoria)
+        {
+            if (productos_registrados.ContainsKey(categoria))
+            {
+                Producto producto_encontrado = productos_registrados[categoria];
+                return producto_encontrado;
+            }
+            else
+            {
+                MessageBox.Show("No existe el producto a buscar");
+                return;
+            }
+        }
     }
 }
