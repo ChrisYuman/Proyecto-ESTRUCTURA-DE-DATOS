@@ -49,7 +49,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             else
             {
                 MessageBox.Show("No existe el producto a buscar");
-                return;
+                return null;
             }
         }
 
@@ -63,7 +63,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             else
             {
                 MessageBox.Show("No existe el producto a buscar");
-                return;
+                return null;
             }
         }
     }
