@@ -16,5 +16,19 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         {
             InitializeComponent();
         }
+
+        private void Pagina_principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //mostrar el formulario de registro
+                RegistrarProductos RegistrarProductos = new RegistrarProductos();
+            RegistrarProductos.Show();
+            //ocultar la pagina principal
+            this.Hide();
+        }
     }
 }

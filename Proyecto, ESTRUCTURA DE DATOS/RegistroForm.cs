@@ -48,5 +48,15 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNuevoUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
