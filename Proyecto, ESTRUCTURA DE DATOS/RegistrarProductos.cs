@@ -32,6 +32,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         {
             // Obtener los valores ingresados por el usuario
             string nombre = txtNombreProducto.Text;
+            string categoria = txtCategoria.Text;
             string descripcion = txtDescripcion.Text;
             double precio = Convert.ToDouble(txtPrecio.Text); // Asegúrate de manejar errores de conversión
             int cantidad = Convert.ToInt32(txtCantidadDisponible.Text); // Asegúrate de manejar errores de conversión
@@ -44,7 +45,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             }
 
             // Registrar el producto utilizando el GestorProductos
-            products.RegistrarProducto(nombre, descripcion, precio, cantidad);
+            products.RegistrarProducto(nombre, categoria, descripcion, precio, cantidad);
 
             // Limpiar los cuadros de texto después del registro exitoso
             LimpiarCampos();
@@ -66,7 +67,8 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             if (dataGridViewProductos.ColumnCount == 0)
             {
                 dataGridViewProductos.Columns.Add("Nombre", "Nombre");
-                dataGridViewProductos.Columns.Add("Descripción", "Descripción");
+                dataGridViewProductos.Columns.Add("Categoria", "Categoria");
+                dataGridViewProductos.Columns.Add("Descripcion", "Descripcion");
 
                 // Agregar la columna de Precio y configurar su formato
                 var precioColumn = new DataGridViewTextBoxColumn();
@@ -82,13 +84,14 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             foreach (var productoEntry in products.ProductosRegistrados)
             {
                 Producto producto = productoEntry.Value;
-                dataGridViewProductos.Rows.Add(producto.Nombre, producto.Descripcion, producto.Precio, producto.Cantidad_Disponible);
+                dataGridViewProductos.Rows.Add(producto.Nombre, producto.Categoria, producto.Descripcion, producto.Precio, producto.Cantidad_Disponible);
             }
         }
 
         private void LimpiarCampos()
         {
             txtNombreProducto.Text = "";
+            txtCategoria.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtCantidadDisponible.Text = "";
@@ -109,16 +112,17 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                     string[] campos = linea.Split(',');
 
                     // Verificar si hay suficientes campos para crear un producto
-                    if (campos.Length >= 4)
+                    if (campos.Length >= 5)
                     {
                         // Obtener los valores de los campos
                         string nombre = campos[0];
-                        string descripcion = campos[1].Trim();
-                        double precio = Convert.ToDouble(campos[2]);
-                        int cantidad = Convert.ToInt32(campos[3]);
+                        string categoria = campos[1].Trim();
+                        string descripcion = campos[2].Trim();
+                        double precio = Convert.ToDouble(campos[3]);
+                        int cantidad = Convert.ToInt32(campos[4]);
 
                         // Registrar el producto utilizando el GestorProductos
-                        products.RegistrarProducto(nombre, descripcion, precio, cantidad);
+                        products.RegistrarProducto(nombre, categoria, descripcion, precio, cantidad);
                     }
                 }
 
@@ -152,6 +156,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             Pagina_principal principal = new Pagina_principal();
             principal.Show();
             this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

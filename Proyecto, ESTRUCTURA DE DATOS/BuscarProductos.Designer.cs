@@ -40,6 +40,10 @@
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,16 +59,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 85);
+            this.label2.Location = new System.Drawing.Point(67, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Categoria";
+            this.label2.Text = "Descripcion";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 127);
+            this.label3.Location = new System.Drawing.Point(67, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 2;
@@ -73,7 +77,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 177);
+            this.label4.Location = new System.Drawing.Point(67, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 3;
@@ -81,7 +85,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(58, 261);
+            this.button1.Location = new System.Drawing.Point(70, 322);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 4;
@@ -91,7 +95,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(316, 261);
+            this.button2.Location = new System.Drawing.Point(303, 322);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(156, 23);
             this.button2.TabIndex = 5;
@@ -101,7 +105,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(567, 260);
+            this.button3.Location = new System.Drawing.Point(577, 321);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(83, 24);
             this.button3.TabIndex = 6;
@@ -111,7 +115,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(664, 372);
+            this.button4.Location = new System.Drawing.Point(742, 322);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(95, 34);
             this.button4.TabIndex = 7;
@@ -128,30 +132,59 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(269, 79);
+            this.txtCategoria.Location = new System.Drawing.Point(269, 90);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(100, 22);
             this.txtCategoria.TabIndex = 9;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(269, 121);
+            this.txtPrecio.Location = new System.Drawing.Point(269, 184);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 22);
             this.txtPrecio.TabIndex = 10;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(269, 171);
+            this.txtCantidad.Location = new System.Drawing.Point(269, 234);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 22);
             this.txtCantidad.TabIndex = 11;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(269, 145);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(100, 22);
+            this.txtDescripcion.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(70, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Categoria";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(459, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(478, 256);
+            this.dataGridView1.TabIndex = 14;
             // 
             // BuscarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(960, 450);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtCategoria);
@@ -166,6 +199,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BuscarProductos";
             this.Text = "BuscarProductos";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +219,8 @@
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

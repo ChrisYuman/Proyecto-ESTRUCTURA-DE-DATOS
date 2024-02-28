@@ -32,7 +32,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         {
             get { return productos_registrados; }
         }
-        public void RegistrarProducto(string nombre, string descripcion, double precio, int cantidad_disponible)
+        public void RegistrarProducto(string nombre, string categoria, string descripcion, double precio, int cantidad_disponible)
         {
             // Verificar si ya existe un producto con un nombre similar
             string nombreNormalizado = nombre.ToLower(); // Convertir el nombre a minúsculas para una comparación insensible a mayúsculas y minúsculas
@@ -45,7 +45,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             else
             {
                 // Si no existe, agregar un nuevo producto
-                Producto nuevoProducto = new Producto(nombre, descripcion, precio, cantidad_disponible);
+                Producto nuevoProducto = new Producto(nombre, categoria, descripcion, precio, cantidad_disponible);
                 productos_registrados.Add(nombreNormalizado, nuevoProducto);
             }
 
@@ -64,16 +64,17 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             return null;
         }
 
-        public Producto BuscarPorCategoria(string categoria)
+        public List<Producto> BuscarPorCategoria(string categoria)
         {
+            List<Producto> productos_filtrados = new List<Producto>();
             foreach (var producto in productos_registrados.Values)
             {
-                if (producto.Descripcion == categoria)
+                if (producto.Categoria == categoria)
                 {
-                    return producto;
+                    productos_filtrados.Add(producto);
                 }
             }
-            return null;
+            return productos_filtrados;
         }
     }
 }
