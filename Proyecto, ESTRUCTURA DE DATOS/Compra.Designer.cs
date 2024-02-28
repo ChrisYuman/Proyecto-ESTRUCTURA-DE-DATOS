@@ -41,7 +41,7 @@
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(75, 23);
             this.btnComprar.TabIndex = 0;
-            this.btnComprar.Text = "button1";
+            this.btnComprar.Text = "Compra";
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
@@ -51,8 +51,9 @@
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(75, 23);
             this.btnVender.TabIndex = 1;
-            this.btnVender.Text = "button2";
+            this.btnVender.Text = "Venta";
             this.btnVender.UseVisualStyleBackColor = true;
+            this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
             // txtNombreProducto
             // 
@@ -74,7 +75,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Regresar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

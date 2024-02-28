@@ -54,5 +54,40 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             principal.Show();
             this.Close();
         }
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+            string nombreProducto = txtNombreProducto.Text;
+            int cantidad;
+
+            // Verificar si la cantidad ingresada es un número válido
+            if (!int.TryParse(txtCantidad.Text, out cantidad) || cantidad <= 0)
+            {
+                MessageBox.Show("Por favor, ingrese una cantidad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verificar si el producto está registrado
+            if (gestorProductos.ProductosRegistrados.ContainsKey(nombreProducto.ToLower()))
+            {
+                // Verificar si hay suficiente cantidad disponible
+                Producto producto = gestorProductos.ProductosRegistrados[nombreProducto.ToLower()];
+                if (producto.Cantidad_Disponible < cantidad)
+                {
+                    MessageBox.Show($"No hay suficientes unidades de {nombreProducto} en inventario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Actualizar la cantidad disponible del producto
+                producto.Cantidad_Disponible -= cantidad;
+
+                // Mostrar mensaje de éxito
+                MessageBox.Show($"Se han vendido {cantidad} unidades de {nombreProducto} correctamente.", "Venta Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("El producto no está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
