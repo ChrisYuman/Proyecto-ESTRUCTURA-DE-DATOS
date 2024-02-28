@@ -30,5 +30,12 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             //ocultar la pagina principal
             this.Hide();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarProductos buscar = new BuscarProductos();
+            buscar.Show();
+            this.Hide();
+        }
     }
 }

@@ -78,7 +78,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             }
 
             // Obtener todos los productos del diccionario dentro de GestorProductos
-            foreach (var productoEntry in gestorProductos.ProductosRegistrados)
+            foreach (var productoEntry in products.productos_registrados)
             {
                 Producto producto = productoEntry.Value;
                 dataGridViewProductos.Rows.Add(producto.Nombre, producto.Descripcion, producto.Precio, producto.Cantidad_Disponible);
@@ -117,7 +117,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                         int cantidad = Convert.ToInt32(campos[3]);
 
                         // Registrar el producto utilizando el GestorProductos
-                        productos.RegistrarProducto(nombre, descripcion, precio, cantidad);
+                        products.RegistrarProducto(nombre, descripcion, precio, cantidad);
                     }
                 }
 
@@ -144,6 +144,13 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                 // Actualizar la lista de productos registrados
                 CargarProductosRegistrados();
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Pagina_principal principal = new Pagina_principal();
+            principal.Show();
+            this.Hide();
         }
     }
 }

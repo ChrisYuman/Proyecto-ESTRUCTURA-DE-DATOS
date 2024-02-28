@@ -9,16 +9,8 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public class GestorProductos
     {
-        private Dictionary<string, Producto> productos_registrados;
+        public Dictionary<string, Producto> productos_registrados = new Dictionary<string, Producto>();
 
-        public GestorProductos()
-        {
-            this.productos_registrados = new Dictionary<string, Producto>();
-        }
-        public Dictionary<string, Producto> ProductosRegistrados
-        {
-            get { return productos_registrados; }
-        }
         public void RegistrarProducto(string nombre, string descripcion, double precio, int cantidad_disponible)
         {
             // Verificar si ya existe un producto con un nombre similar
@@ -41,28 +33,24 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         }
         public Producto BuscarPorNombre(string nombre)
         {
-            if (productos_registrados.ContainsKey(nombre))
+            foreach(var producto in productos_registrados.Values)
             {
-                Producto producto_encontrado = productos_registrados[nombre];
-                return producto_encontrado;
+                if(producto.Nombre == nombre)
+                {
+                    return producto;
+                }
             }
-            else
-            {
-                MessageBox.Show("No existe el producto a buscar");
-                return null;
-            }
+            return null;
         }
 
         public Producto BuscarPorCategoria(string categoria)
         {
-            if (productos_registrados.ContainsKey(categoria))
+            if (productos_registrados.TryGetValue(categoria, out var producto))
             {
-                Producto producto_encontrado = productos_registrados[categoria];
-                return producto_encontrado;
+                return producto;
             }
             else
             {
-                MessageBox.Show("No existe el producto a buscar");
                 return null;
             }
         }

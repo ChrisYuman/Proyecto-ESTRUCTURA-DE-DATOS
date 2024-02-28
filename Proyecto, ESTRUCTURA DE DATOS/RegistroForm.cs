@@ -12,7 +12,6 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public partial class RegistroForm : Form
     {
-        public Dictionary<string, Usuario> usuarios;
         public GestorUsuario users = new GestorUsuario();
         public RegistroForm()
         {
