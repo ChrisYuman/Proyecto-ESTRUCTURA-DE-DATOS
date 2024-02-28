@@ -8,7 +8,6 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public static class Notificador
     {
-        // Delegado para manejar las notificaciones
         public delegate void NotificacionEventHandler(string mensaje);
 
         // Evento para notificar a los usuarios
@@ -21,6 +20,13 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             string mensaje = $"Nivel crítico de inventario para {nombreProducto}. Cantidad disponible: {cantidadDisponible}";
 
             // Disparar el evento de notificación
+            OnNotificacion(mensaje);
+        }
+
+        // Método para activar el evento Notificacion
+        private static void OnNotificacion(string mensaje)
+        {
+            // Verificar que haya suscriptores al evento antes de invocarlo
             Notificacion?.Invoke(mensaje);
         }
     }

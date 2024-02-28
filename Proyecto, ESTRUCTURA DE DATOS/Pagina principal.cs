@@ -19,8 +19,14 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             InitializeComponent();
             gestorProductos = GestorProductos.Instancia;
 
-        }
+            Notificador.Notificacion += ManejarNotificacion;
 
+        }
+        private void ManejarNotificacion(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Notificación de inventario crítico", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            // Otra lógica para manejar la notificación, como escribir en un archivo de registro, enviar un correo electrónico, etc.
+        }
         private void Pagina_principal_Load(object sender, EventArgs e)
         {
 

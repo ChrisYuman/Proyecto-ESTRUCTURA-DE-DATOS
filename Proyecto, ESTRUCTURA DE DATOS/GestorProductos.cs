@@ -9,6 +9,8 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public class GestorProductos
     {
+        private const int UmbralCritico = 10;
+
         private static GestorProductos instancia;
 
         private Dictionary<string, Producto> productos_registrados;
@@ -42,11 +44,18 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                 Producto productoExistente = productos_registrados[nombreNormalizado];
                 productoExistente.Cantidad_Disponible += cantidad_disponible;
             }
+
             else
             {
                 // Si no existe, agregar un nuevo producto
                 Producto nuevoProducto = new Producto(nombre, categoria, descripcion, precio, cantidad_disponible);
                 productos_registrados.Add(nombreNormalizado, nuevoProducto);
+
+                if (cantidad_disponible <= UmbralCritico)
+                {
+                    // Enviar notificación
+                    Notificador.InformarNivelCritico(nombre, cantidad_disponible);
+                }
             }
 
             // Mostrar un mensaje o notificación de éxito
@@ -86,6 +95,12 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                 producto_existente.Descripcion = descripcion;
                 producto_existente.Precio = precio;
                 producto_existente.Cantidad_Disponible = cantidad;
+
+                if (cantidad < UmbralCritico)
+                {
+                    Notificador.InformarNivelCritico(nombre, cantidad);
+                }
+
                 MessageBox.Show("Producto Actualizado Correctamente");
             }
             else

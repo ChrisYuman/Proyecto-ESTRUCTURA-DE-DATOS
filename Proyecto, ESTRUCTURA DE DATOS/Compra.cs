@@ -41,13 +41,22 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 
                 // Mostrar mensaje de éxito
                 MessageBox.Show($"Se han comprado {cantidad} unidades de {nombreProducto} correctamente.", "Compra Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (producto.Cantidad_Disponible < 10)
+                {
+                    string mensaje = $"¡Alerta! Quedan menos de 10 unidades de {nombreProducto} en inventario.";
+                    MostrarNotificacion(mensaje);
+                }
             }
             else
             {
                 MessageBox.Show("El producto no está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void MostrarNotificacion(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Alerta de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Pagina_principal principal = new Pagina_principal();
@@ -83,6 +92,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 
                 // Mostrar mensaje de éxito
                 MessageBox.Show($"Se han vendido {cantidad} unidades de {nombreProducto} correctamente.", "Venta Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (producto.Cantidad_Disponible < 10)
+                {
+                    string mensaje = $"¡Alerta! Quedan menos de 10 unidades de {nombreProducto} en inventario.";
+                    MostrarNotificacion(mensaje);
+                }
             }
             else
             {
