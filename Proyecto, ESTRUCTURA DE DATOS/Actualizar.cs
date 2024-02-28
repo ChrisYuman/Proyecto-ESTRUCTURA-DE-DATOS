@@ -41,6 +41,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         {
             txtNombre.Clear();
             txtCategoria.Clear();
+            txtDescripcion.Clear();
             txtPrecio.Clear();
             txtCantidad.Clear();
         }
