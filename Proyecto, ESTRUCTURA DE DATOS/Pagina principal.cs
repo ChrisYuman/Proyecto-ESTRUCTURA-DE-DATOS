@@ -55,5 +55,15 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             Actualizar.Show();
             this.Hide();
         }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void Actualizar_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }
