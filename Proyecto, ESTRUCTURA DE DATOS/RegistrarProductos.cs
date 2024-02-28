@@ -14,10 +14,11 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
     public partial class RegistrarProductos : Form
     {
 
-        public GestorProductos products = new GestorProductos();
+        private GestorProductos products; 
         public RegistrarProductos()
         {
 
+            this.products = GestorProductos.Instancia;
             InitializeComponent();
 
         }
@@ -78,7 +79,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             }
 
             // Obtener todos los productos del diccionario dentro de GestorProductos
-            foreach (var productoEntry in products.productos_registrados)
+            foreach (var productoEntry in products.ProductosRegistrados)
             {
                 Producto producto = productoEntry.Value;
                 dataGridViewProductos.Rows.Add(producto.Nombre, producto.Descripcion, producto.Precio, producto.Cantidad_Disponible);
@@ -112,7 +113,7 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
                     {
                         // Obtener los valores de los campos
                         string nombre = campos[0];
-                        string descripcion = campos[1];
+                        string descripcion = campos[1].Trim();
                         double precio = Convert.ToDouble(campos[2]);
                         int cantidad = Convert.ToInt32(campos[3]);
 

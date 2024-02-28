@@ -9,8 +9,29 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public class GestorProductos
     {
-        public Dictionary<string, Producto> productos_registrados = new Dictionary<string, Producto>();
+        private static GestorProductos instancia;
 
+        private Dictionary<string, Producto> productos_registrados;
+
+        private GestorProductos()
+        {
+            productos_registrados =  new Dictionary<string, Producto>();
+        }
+        public static GestorProductos Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new GestorProductos();
+                }
+                return instancia;
+            }
+        }
+        public Dictionary<string, Producto> ProductosRegistrados
+        {
+            get { return productos_registrados; }
+        }
         public void RegistrarProducto(string nombre, string descripcion, double precio, int cantidad_disponible)
         {
             // Verificar si ya existe un producto con un nombre similar
@@ -45,14 +66,14 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 
         public Producto BuscarPorCategoria(string categoria)
         {
-            if (productos_registrados.TryGetValue(categoria, out var producto))
+            foreach (var producto in productos_registrados.Values)
             {
-                return producto;
+                if (producto.Descripcion == categoria)
+                {
+                    return producto;
+                }
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
     }
 }
