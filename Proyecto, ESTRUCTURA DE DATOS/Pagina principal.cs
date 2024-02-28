@@ -12,9 +12,13 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
 {
     public partial class Pagina_principal : Form
     {
+        private GestorProductos gestorProductos;
+
         public Pagina_principal()
         {
             InitializeComponent();
+            gestorProductos = GestorProductos.Instancia;
+
         }
 
         private void Pagina_principal_Load(object sender, EventArgs e)
@@ -35,6 +39,20 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
         {
             BuscarProductos buscar = new BuscarProductos();
             buscar.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Compra Compra = new Compra(gestorProductos);
+            Compra.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Actualizar Actualizar = new Actualizar();
+            Actualizar.Show();
             this.Hide();
         }
     }
