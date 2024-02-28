@@ -76,5 +76,22 @@ namespace Proyecto__ESTRUCTURA_DE_DATOS
             }
             return productos_filtrados;
         }
+
+        public void ActualizarProducts(string nombre, string categoria, string descripcion, double precio, int cantidad)
+        {
+            Producto producto_existente = BuscarPorNombre(nombre);
+            if (producto_existente != null)
+            {
+                producto_existente.Categoria = categoria;
+                producto_existente.Descripcion = descripcion;
+                producto_existente.Precio = precio;
+                producto_existente.Cantidad_Disponible = cantidad;
+                MessageBox.Show("Producto Actualizado Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No existe el producto");
+            }
+        }
     }
 }
